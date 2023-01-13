@@ -4,7 +4,7 @@
 
 This is a simple quiz app that allows you to create quizzes and take quizzes. It is built using the React framework. it is a work in progress. it will be connected to the following API:[opentrivia database](https://opentdb.com/api_config.php)
 
-[quizical app](./public/Quizical.png)
+ ![quizical img](./public/Quizical.png)
 
 ## Installation
 
