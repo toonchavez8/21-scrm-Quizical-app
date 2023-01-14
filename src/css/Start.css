@@ -1,0 +1,32 @@
+.Start--section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5rem;
+	max-width: 20rem;
+}
+/*  */
+.Start--button {
+	background-color: rgb(var(--clr-mediumBlue));
+	color: rgb(var(--clr-cream));
+	border: none;
+	border-radius: 0.5rem;
+	padding: 0.8rem 3.125rem;
+	cursor: pointer;
+	caret-color: transparent;
+}
+
+.Start--button:hover {
+	background-color: rgb(var(--clr-mediumBlue));
+	scale: 1.03;
+}
+.Start--button:active {
+	background-color: rgb(var(--clr-mediumBlue));
+	scale: 1;
+	box-shadow: inset 0 0 0.5rem 0.5rem rgb(var(--clr-darkBlue), 0.5);
+}
+
+.Start--section-sub {
+	padding-bottom: 1.25rem;
+}

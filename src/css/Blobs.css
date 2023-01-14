@@ -1,0 +1,53 @@
+.Blobs-Box {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	z-index: -1;
+	display: flex;
+	justify-content: space-between;
+}
+
+.Blobs--left {
+	justify-self: flex-start;
+	align-self: flex-end;
+	transform: translate(-30%, 20%);
+	scale: 2;
+	opacity: 0.5;
+}
+
+.Blobs--right {
+	justify-self: flex-end;
+	align-self: flex-start;
+	transform: translate(30%, -20%);
+	scale: 2;
+	opacity: 0.5;
+}
+
+@media screen and (max-width: 35rem) {
+	.Blobs--left {
+		transform: translate(20%, 20%);
+		scale: 2.5;
+		opacity: 0.5;
+	}
+
+	.Blobs--right {
+		transform: translate(-20%, -20%);
+		scale: 2;
+		opacity: 0.5;
+	}
+}
+
+@media screen and (min-width: 45rem) {
+	.Blobs--left {
+		transform: translate(0%, 20%);
+		scale: 2.5;
+		opacity: 0.5;
+	}
+
+	.Blobs--right {
+		transform: translate(0%, -20%);
+		scale: 2;
+		opacity: 0.5;
+	}
+}

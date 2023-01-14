@@ -1,0 +1,84 @@
+.Questions--section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	width: 100%;
+	max-width: 40rem;
+	gap: 1rem;
+	border-bottom: 1px solid rgb(var(--clr-darkBlue), 0.2);
+	padding-bottom: 1.5rem;
+}
+
+.Questions {
+	font-family: "Karla";
+	font-style: normal;
+	font-weight: 700;
+	line-height: 24px;
+}
+
+.Questions--awnsers--container {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+
+	gap: 0.5em;
+	width: 100%;
+}
+
+.Questions--buttons {
+	padding: 0.5rem 1rem;
+	background-color: transparent;
+	border: 2px solid rgb(var(--clr-darkBlue));
+	border-radius: 2rem;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+	color: rgb(var(--clr-darkBlue));
+	font-family: "inter";
+	font-size: 0.875rem;
+	font-weight: 600;
+}
+
+.Questions--buttons:hover {
+	scale: 1.1;
+}
+
+.selected {
+	background-color: rgb(var(--clr-desatBlue));
+	border-color: rgb(var(--clr-desatBlue));
+}
+
+.disabled {
+	pointer-events: none;
+	opacity: 0.3;
+}
+
+.correct {
+	background-color: rgb(var(--clr-correct));
+	border-color: rgb(var(--clr-correct));
+}
+
+.wrong {
+	background-color: rgb(var(--clr-wrong));
+	border-color: rgb(var(--clr-wrong));
+}
+
+.Questions--results {
+	display: flex;
+	gap: 2rem;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	padding-block: 2rem;
+}
+
+.Questions--results-h3 {
+	font-family: "Karla";
+	font-style: normal;
+	text-transform: capitalize;
+	font-weight: 700;
+	font-size: 1.5rem;
+	line-height: 1.85rem;
+}
