@@ -3,6 +3,7 @@ import "../css/App.css"
 import Start from './Start'
 import Questions from './Questions'
 import Blobs from './Blobs'
+import Setup from './Setup'
 
 export default function App() {
 
@@ -13,19 +14,32 @@ const [questions, setQuestions] = React.useState([])
 const [awnsers, setAwnsers] = React.useState([])
 const [score, setScore] = React.useState(0)
 
-
+const [numQuestions, setNumQuestions] = React.useState(10);
+const [category, setCategory] = React.useState(9);
+const [difficulty, setDifficulty] = React.useState('easy');
+const [type, setType] = React.useState('multiple');
 // then i want to fetch the data from the api and store it in the state
 
+const handleFormUpdate = (numQuestions, category, difficulty, type) => {
+  setNumQuestions(numQuestions);
+  setCategory(category);
+  setDifficulty(difficulty);
+  setType(type);
+  setStart(true);
+}
+
 React.useEffect(() => {
-    const url ="https://opentdb.com/api.php?amount=5&category=9&difficulty=easy&type=multiple"
-    fetch(url)
-    .then(res => res.json())
-    .then(data => {
-        setQuestions(data.results)
+  const baseUrl = 'https://opentdb.com/api.php?';
+  const url = `${baseUrl}amount=${numQuestions}&category=${category}&difficulty=${difficulty}&type=${type}`;
+  //fetch data from this url
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      setQuestions(data.results);
     }
-    
-    )
-},[])
+    );
+}, [numQuestions, category, difficulty, type]);
+
 
 console.log(questions)
 // then i want to create a function that will start the game
@@ -40,9 +54,9 @@ function startGame(){
         key={questions.question}
         questions={questions}
     
-      /> : <Start 
-        startGame={startGame}
-      />
+      /> : <Setup onFormUpdate={handleFormUpdate} start={
+        startGame
+      } />
         }
         <Blobs />
     </main>

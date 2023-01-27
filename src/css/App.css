@@ -47,7 +47,6 @@ body {
 	font-family: "Inter", sans-serif;
 	width: 100vw;
 	height: 100vh;
-	border: solid 1px lime;
 	background-color: rgb(var(--clr-cream));
 }
 

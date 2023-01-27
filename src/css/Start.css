@@ -15,6 +15,7 @@
 	padding: 0.8rem 3.125rem;
 	cursor: pointer;
 	caret-color: transparent;
+	text-decoration: none;
 }
 
 .Start--button:hover {
