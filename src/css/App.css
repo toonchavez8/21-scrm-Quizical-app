@@ -214,3 +214,55 @@ main {
 	z-index: 1;
 	padding-inline: 2rem;
 }
+
+.flex {
+	display: flex;
+}
+
+.flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.flex-column {
+	flex-direction: column;
+}
+
+.flex-column-center {
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.gap-1 {
+	gap: 1rem;
+}
+
+.gap-2 {
+	gap: 2rem;
+}
+
+.gap-3 {
+	gap: 3rem;
+}
+
+.max-width-500 {
+	max-width: 500px;
+}
+
+.p-1 {
+	padding: 1rem;
+}
+
+.p-2 {
+	padding: 2rem;
+}
+
+.p-3 {
+	padding: 3rem;
+}
+
+.p-Inline-1 {
+	padding-inline: 1rem;
+}

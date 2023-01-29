@@ -36,11 +36,10 @@ export default function Questions(props) {
   }
 
 
-  // i want to map through the awnsers and display them on the page
 
-  // i want to create a function that will check if the awnser is correct
 
-  // i want to create a function that will check if the awnser is incorrect
+
+
 
   return (
     <div>

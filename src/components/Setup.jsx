@@ -1,4 +1,5 @@
 import React from 'react'
+import "../css/Setup.css"
 
 export default function Setup( {onFormUpdate}) {
     const [numQuestions, setNumQuestions] = React.useState(10)
@@ -25,21 +26,43 @@ export default function Setup( {onFormUpdate}) {
         setStart(true)
       }
 
+      React.useEffect(() => {
+        const rangeInputs = document.querySelectorAll('input[type="range"]')
+        if(rangeInputs.length > 0){
+          function handleInputChange(e) {
+            let target = e.target
+            if (e.target.type !== 'range') {
+              target = document.getElementById('range')
+            } 
+            const min = target.min
+            const max = target.max
+            const val = target.value
+            target.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
+          }
+          rangeInputs.forEach(input => {
+            input.addEventListener('input', handleInputChange)
+          })
+
+        }
+      }, [])
+
+
   return (
-    <section>
-        <div className="">
-            <h1>Quizical Setup</h1>
-            <p>Quizical is a quiz app that allows you to test your knowledge and share your results!</p>
+    <section className='SetupContainer'>
+        <div className="| flex-center flex-column gap-1">
+            <h1 className='clr-darkBlue ff-karla fw-700 fs-32px '>Quizical Setup</h1>
+            <p className='ff-karla fs-16px max-width-500 text-center p-1'>Quizical is a quiz app that allows you to test your knowledge and share your results!</p>
         </div>
 
-        <form>
+        <form className='SetupForm'>
 
-            <label>Number of Questions:</label>
-             <input type="range" name="numQuestions" min="1" max="50" defaultValue="10" onChange={event => setNumQuestions(event.target.value)}/>
-             <label>{numQuestions}</label>
+            <label className='fs-20px text-capitalize ff-karla clr-darkBlue  '>Number of Questions:</label>
+             <input className='Slider' type="range" name="numQuestions" min="1" max="50" defaultValue="10" onChange={event => setNumQuestions(event.target.value) 
+            }/>
+             <label className='fs-20px text-capitalize ff-karla clr-darkBlue text-center '>{numQuestions}</label>
             <br />
 
-            <label>Category:</label>
+            <label className='fs-20px text-capitalize ff-karla clr-darkBlue  '>Category:</label>
             <select name="category" onChange={event => setCategory(event.target.value)}>
             {categories.map(category => (
                 <option key={category.id} value={category.id}>
@@ -49,7 +72,7 @@ export default function Setup( {onFormUpdate}) {
             </select>
             <br />
 
-            <label>Difficulty:</label>
+            <label className='fs-20px text-capitalize ff-karla clr-darkBlue  '>Difficulty:</label>
             <select name="difficulty" onChange={event => setDifficulty(event.target.value)}>
             <option value="easy" >Easy</option>
             <option value="medium">Medium</option>
@@ -57,13 +80,15 @@ export default function Setup( {onFormUpdate}) {
             </select>
             <br />
 
-            <label>Type:</label>
+            <label className='fs-20px text-capitalize ff-karla clr-darkBlue  '>Type:</label>
             <select name="type" onChange={event => setType(event.target.value)}>
             <option value="multiple">Multiple Choice</option>
             <option value="boolean">True/False</option>
             </select>
             <br />
-            <button type="submit" 
+            <button 
+            className='Start--button | ff-inter fw-500 text-capitalize fs-16px '
+            type="submit" 
             onClick={handleSubmit 
                 
             }

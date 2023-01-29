@@ -1,6 +1,5 @@
 import React from 'react'
 import "../css/App.css"
-import Start from './Start'
 import Questions from './Questions'
 import Blobs from './Blobs'
 import Setup from './Setup'
@@ -47,6 +46,8 @@ console.log(questions)
 function startGame(){
     setStart(true)
 }
+
+
 
   return (
     <main className='debug | bg-clr-cream'>
