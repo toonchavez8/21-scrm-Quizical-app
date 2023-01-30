@@ -47,6 +47,9 @@ function startGame(){
     setStart(true)
 }
 
+function returnSettings(){
+  setStart(false)
+}
 
 
   return (
@@ -54,7 +57,8 @@ function startGame(){
       { start ? <Questions 
         key={questions.question}
         questions={questions}
-    
+        start={
+        returnSettings}
       /> : <Setup onFormUpdate={handleFormUpdate} start={
         startGame
       } />
