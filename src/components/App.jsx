@@ -17,6 +17,8 @@ const [numQuestions, setNumQuestions] = React.useState(10);
 const [category, setCategory] = React.useState(9);
 const [difficulty, setDifficulty] = React.useState('easy');
 const [type, setType] = React.useState('multiple');
+
+const [loading, setLoading] = React.useState(false);
 // then i want to fetch the data from the api and store it in the state
 
 const handleFormUpdate = (numQuestions, category, difficulty, type) => {
@@ -50,6 +52,115 @@ function startGame(){
 function returnSettings(){
   setStart(false)
 }
+
+
+React.useEffect(() => {
+  if (start === true) {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }
+}, [start]);
+
+if (loading) {
+  return (
+    <main className='debug | bg-clr-cream'>
+       <section className='Questions--section |   clr-darkBlue'>
+        <h1 className='Questions--h1'> Loading ... </h1>
+          <div className="Loading-screen">
+          <div className="question-block">
+              <div className='question-loader'></div>
+             <div className='awenser-loader'>
+                <button className='
+                Questions--buttons
+                '></button>
+                <button className='
+                Questions--buttons
+                '></button>
+                <button className='
+                Questions--buttons
+                '></button>
+                <button className='
+                Questions--buttons
+                '></button>
+              </div>
+            </div>
+          <div className="question-block">
+              <div className='question-loader'></div>
+             <div className='awenser-loader'>
+                <button className='
+                Questions--buttons
+                '></button>
+                <button className='
+                Questions--buttons
+                '></button>
+                <button className='
+                Questions--buttons
+                '></button>
+                <button className='
+                Questions--buttons
+                '></button>
+              </div>
+            </div>
+          <div className="question-block">
+              <div className='question-loader'></div>
+             <div className='awenser-loader'>
+                <button className='
+                Questions--buttons
+                '></button>
+                <button className='
+                Questions--buttons
+                '></button>
+                <button className='
+                Questions--buttons
+                '></button>
+                <button className='
+                Questions--buttons
+                '></button>
+              </div>
+            </div>
+          <div className="question-block">
+              <div className='question-loader'></div>
+             <div className='awenser-loader'>
+                <button className='
+                Questions--buttons
+                '></button>
+                <button className='
+                Questions--buttons
+                '></button>
+                <button className='
+                Questions--buttons
+                '></button>
+                <button className='
+                Questions--buttons
+                '></button>
+              </div>
+            </div>
+          <div className="question-block">
+              <div className='question-loader'></div>
+             <div className='awenser-loader'>
+                <button className='
+                Questions--buttons
+                '></button>
+                <button className='
+                Questions--buttons
+                '></button>
+                <button className='
+                Questions--buttons
+                '></button>
+                <button className='
+                Questions--buttons
+                '></button>
+              </div>
+            </div>
+          </div>
+      </section>
+    <Blobs />
+    </main>
+  );
+}
+
 
 
   return (

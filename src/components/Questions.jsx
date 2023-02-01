@@ -4,11 +4,16 @@ import NotFound from '../assets/NotFoundAnim.json'
 import Lottie from "lottie-react";
 export default function Questions(props) {
 
-  console.log(props.questions)
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [questionsPerPage] = React.useState(5);
+    // Get current questions
+    const indexOfLastQuestion = currentPage * questionsPerPage;
+    const indexOfFirstQuestion = indexOfLastQuestion - questionsPerPage;
+    const currentQuestions = props.questions.slice(indexOfFirstQuestion, indexOfLastQuestion);
 
-
-
+    
   function displayQuestions() {
+ 
 
     // if there are no questions available display a message and a button return to the settings page
     if (!props.questions || props.questions.length === 0) {
@@ -31,7 +36,7 @@ export default function Questions(props) {
     }
 
         // with props.questions.map map through the questions and display them on the page
-        return props.questions.map((question, index) => {
+        return currentQuestions.map((question, index) => {
           // here we are going to shuffle the awnsers by creating an array with the correct awnser and the incorrect awnsers and then sorting them randomly
           const shuffledAnswers = [question.correct_answer, ...question.incorrect_answers].sort(() => Math.random() - 0.5);
     
@@ -74,18 +79,80 @@ function altButtons(){
 }
 
 
+const handleNextPage = () => {
+  setCurrentPage(currentPage + 1);
+};
 
+const handlePrevPage = () => {
+  setCurrentPage(currentPage - 1);
+};
+
+// if currentPage is 1 disable the previous button
+
+React.useEffect(() => {
+  const prevButton = document.getElementById('prev');
+  const nextButton = document.getElementById('next');
+
+  if (currentPage === 1) {
+    prevButton.classList.add('disabled');
+  } else {
+    prevButton.classList.remove('disabled');
+  }
+
+  if (currentPage === props.questions.length / questionsPerPage) {
+    nextButton.classList.add('disabled');
+  } else {
+    nextButton.classList.remove('disabled');
+  }
+}, [currentPage]);
+
+// react use effect to update the hidden progress bar and pagination if there are no questions available
+React.useEffect(() => {
+  const progressBar = document.getElementById('progress-bar');
+  const pagination = document.getElementById('pagination');
+
+  if (!props.questions || props.questions.length === 0) {
+    progressBar.classList.add('hidden');
+    pagination.classList.add('hidden');
+  } else {
+    progressBar.classList.remove('hidden');
+    pagination.classList.remove('hidden');
+  }
+}, [props.questions]);
+
+const progressPercentage = Math.round((currentPage / (props.questions.length / questionsPerPage)) * 100);
+
+console.log("progressPercentage", progressPercentage)
   return (
     <div>
+
+     
+
       {displayQuestions()}
 
+      <div className="progress-bar" id='progress-bar'>
+        <div className="progress-bar__fill" style={{ width: `${progressPercentage}%` }}></div>
+      </div>
+      <div className="pagination" id="pagination">
+         <button 
+          id='prev'
+          className='pagintation__button | fw-600 fs-16px ff-inter'
+          onClick={handlePrevPage}
+          >
+            Previous
+          </button>
+          <button 
+          id='next'
+          className='pagintation__button | fw-600 fs-16px ff-inter'
+          onClick={handleNextPage}>
+          Next
+          </button>
+        </div>
       <section className='Questions--results'>
 {/* 
         <h3 className='Questions--results-h3'>
           you scored 1 / 5 correct awnsers
         </h3> */}
-
-    
     { altButtons()}
       </section>
     </div>

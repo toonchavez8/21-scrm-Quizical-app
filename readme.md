@@ -8,11 +8,15 @@ This is a simple quiz app that allows you to create quizzes and take quizzes. It
 
 ## Features
 
-- [] Reponsive design
-- [] Start a quiz with a single click
-- [] submit answers and check results
-- [] Compare awnsers with correct awnsers
-- [] Api connection
+- [x] Reponsive design
+- [ ] Start a quiz with a single click
+- [ ] submit answers and check results
+- [ ] Compare awnsers with correct awnsers
+- [x] Api connection
+- [x] edit quiz settings
+- [x] quiz pagination with next and previous buttons
+- [x] progress bar
+- [x] no questions found message
 
 ## Installation
 
